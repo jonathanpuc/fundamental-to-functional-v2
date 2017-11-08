@@ -283,3 +283,14 @@ _.filter = function(list, callback) {
 
 const filteredSuspects = _.filter(videoData, item => item.present);
 const finalSuspects = _.map(filteredSuspects, item => item.name);
+
+// alternative
+const getFinalSuspects = function() {
+  _.filter(videoData, function(suspect) {
+    let finalSuspects = suspect.present === true;
+
+    return _.map(finalSuspects, function(suspect) {
+      return item.name;
+    });
+  });
+};
