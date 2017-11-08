@@ -294,3 +294,13 @@ const getFinalSuspects = function() {
     });
   });
 };
+
+// mimick es6 functionality of setting default value of args
+// e.g  const add = function (a, b=2) {return a + b}
+
+const add = function(a, b) {
+  let defaultVal = 2;
+  // if b arg is not a number or does not exist, return default value
+  b = typeof b === number ? b : defaultVal;
+  return a + b;
+};
