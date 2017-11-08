@@ -304,3 +304,18 @@ const add = function(a, b) {
   b = typeof b === number ? b : defaultVal;
   return a + b;
 };
+
+// Exercise: Implement the Array.from method into our own _ object.
+
+/*
+    * The Array.from() method creates a new Array instance from 
+    * an array-like or iterable object.
+    */
+
+const from = function() {
+  var arr = [];
+  for (let i = 0; i < arguments.length; i++) {
+    arr.push(arguments[i]);
+  }
+  return arr;
+};
