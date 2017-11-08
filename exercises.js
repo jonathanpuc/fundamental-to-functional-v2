@@ -343,3 +343,20 @@ var increment = n => n + 1;
 var square = n => n * n;
 
 var doMathSoIDontHaveTo = (n, func) => func(n);
+
+// Exercise: Create a basic reduce function
+
+const reduce = function(list, cb, initial) {
+  let memo = initial;
+
+  for (let i = 0; i < list.length; i++) {
+    if (i === 0 && memo === undefined) {
+      memo = list[0];
+    } else {
+      memo = cb(list[i], memo);
+    }
+  }
+  return memo;
+};
+
+reduce([1, 2, 3], (v, sum) => v + sum, 0);
