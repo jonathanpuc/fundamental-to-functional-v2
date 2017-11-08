@@ -319,3 +319,27 @@ const from = function() {
   }
   return arr;
 };
+
+// Exercise: Restructure the following to ES6
+var increment = function(n) {
+  return n + 1;
+};
+
+var square = function(n) {
+  return n * n;
+};
+
+var doMathSoIDontHaveTo = function(n, func) {
+  return func(n);
+};
+
+doMathSoIDontHaveTo(2, increment); // 3
+doMathSoIDontHaveTo(2, square); // 4
+
+// ES6 style
+
+var increment = n => n + 1;
+
+var square = n => n * n;
+
+var doMathSoIDontHaveTo = (n, func) => func(n);
