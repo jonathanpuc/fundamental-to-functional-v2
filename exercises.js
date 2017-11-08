@@ -182,3 +182,104 @@ const makeBroken = function(item) {
 };
 
 _.map(weapons, makeBroken);
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// DAY 2
+/////////////////////////////////////////////////////////////////////////////////////////
+
+// Filter out suspects that weren't present on the night
+
+// Implement our filter method
+
+const videoData = [
+  {
+    name: "Miss Scarlet",
+    present: true,
+    rooms: [
+      { kitchen: false },
+      { ballroom: false },
+      { conservatory: false },
+      { "dining room": false },
+      { "billiard room": false },
+      { library: false }
+    ]
+  },
+  {
+    name: "Mrs. White",
+    present: false,
+    rooms: [
+      { kitchen: false },
+      { ballroom: false },
+      { conservatory: false },
+      { "dining room": false },
+      { "billiard room": false },
+      { library: false }
+    ]
+  },
+  {
+    name: "Reverend Green",
+    present: true,
+    rooms: [
+      { kitchen: false },
+      { ballroom: false },
+      { conservatory: false },
+      { "dining room": false },
+      { "billiard room": false },
+      { library: false }
+    ]
+  },
+  {
+    name: "Rusty",
+    present: false,
+    rooms: [
+      { kitchen: false },
+      { ballroom: false },
+      { conservatory: false },
+      { "dining room": false },
+      { "billiard room": false },
+      { library: false }
+    ]
+  },
+  {
+    name: "Colonel Mustard",
+    present: true,
+    rooms: [
+      { kitchen: false },
+      { ballroom: false },
+      { conservatory: false },
+      { "dining room": false },
+      { "billiard room": false },
+      { library: false }
+    ]
+  },
+  {
+    name: "Professor Plum",
+    present: true,
+    rooms: [
+      { kitchen: false },
+      { ballroom: false },
+      { conservatory: false },
+      { "dining room": false },
+      { "billiard room": false },
+      { library: false }
+    ]
+  }
+];
+
+// add the "filter" method
+_.filter = function(list, callback) {
+  var results = [];
+
+  this.each(list, item => {
+    if (callback(item)) {
+      results.push(item);
+    }
+  });
+
+  return results;
+};
+
+// Gather the final suspects by filtering and mapping suspects who were present
+
+const filteredSuspects = _.filter(videoData, item => item.present);
+const finalSuspects = _.map(filteredSuspects, item => item.name);
